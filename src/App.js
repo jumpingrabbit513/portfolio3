@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Main from './Main.js'
+import Home from './pages/Home.js'
+import Personas from './pages/Personas.js'
+import Redesign from './pages/Redesign.js'
+import Iterative from './pages/Iterative';
+import Development from './pages/Development'
+
+import { Routes, Route, HashRouter} from 'react-router-dom';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="JumpingRabbitPortfolio">
+      <HashRouter>
+      <Routes>
+        <Route path="/" element={<Main/>}>
+          <Route index element={<Home/>} />
+          <Route path="personas" element={<Personas/>} />
+          <Route path="redesign" element={<Redesign/>} />
+          <Route path="iterative" element={<Iterative/>} />
+          <Route path="development" element={<Development/>} />
+        </Route>
+      </Routes>
+    </HashRouter>
     </div>
   );
 }
